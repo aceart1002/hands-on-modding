@@ -1,0 +1,16 @@
+[
+{
+  "modid": "redstone",
+  "name": "Wireless redstone",
+  "description": "Wireless.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["ExampleDude"],
+  "credits": "fuckers",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
