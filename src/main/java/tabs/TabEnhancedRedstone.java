@@ -1,6 +1,7 @@
 package tabs;
 
 import hands.on.modding.HandsOnModding;
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import registry.ModBlocks;
@@ -19,7 +20,7 @@ public class TabEnhancedRedstone extends CreativeTabs {
 
 	@Override
 	public ItemStack getTabIconItem() {
-		return new ItemStack(ModBlocks.WIRELESS);
+		return new ItemStack((Block) ModBlocks.TRANSMITTER);
 	}
 	
 }

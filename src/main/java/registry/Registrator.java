@@ -10,7 +10,9 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
+import tiles.ContainsTile;
 
 @Mod.EventBusSubscriber(modid = HandsOnModding.MODID)
 public class Registrator implements ModBlocks {
@@ -24,8 +26,15 @@ public class Registrator implements ModBlocks {
 			unregistered.setUnlocalizedName(customName);
 			unregistered.setRegistryName(customName);
 
+			registerTile(unregistered, customName);
 		}
-
+	}
+	
+	static void registerTile(Block block, String registryName) {
+		if(block instanceof ContainsTile<?>) {
+			ContainsTile<?> unregistered = (ContainsTile<?>) block;
+			GameRegistry.registerTileEntity((unregistered).getTileEntityClass(), registryName);
+		}
 	}
 
 	@SubscribeEvent
