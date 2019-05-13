@@ -7,23 +7,24 @@ import net.minecraft.block.BlockRedstoneDiode;
 import redstone.blocks.WirelessDiode;
 import redstone.blocks.TestTransmitter;
 import redstone.blocks.TestLever;
-import redstone.blocks.Receiver;
-import redstone.blocks.Transmitter;
+import redstone.blocks.BlockReceiver;
+import redstone.blocks.BlockTransmitter;
 
 
 public interface ModBlocks {
 	
-	Block WIRELESS = new Transmitter(true, "redstone_transmitter");
+	Block WIRELESS = new BlockTransmitter(true, "redstone_transmitter");
 	
-	Block TRANSMITTER = new TestTransmitter(false, "unpowered_transmitter");
-	Block RECEIVER = Receiver.UNPOWERED;
+	Registrable TRANSMITTER = BlockTransmitter.UNPOWERED;
+	Registrable RECEIVER = BlockReceiver.UNPOWERED;
 	
+	Registrable test = new BlockReceiver(true, "test");
 	
 //	Block POWERED_REPEATER = new TestTransmitter(true, "different_repeater");
 	
 	Block LEVER = new TestLever("test_lever");
 	
-	Block[] BLOCKS  = {WIRELESS, LEVER, TRANSMITTER, RECEIVER};
+	Registrable[] BLOCKS  = {TRANSMITTER, RECEIVER, test};
 
 	
 }

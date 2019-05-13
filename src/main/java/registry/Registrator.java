@@ -12,25 +12,42 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
-@Mod.EventBusSubscriber
+@Mod.EventBusSubscriber(modid = HandsOnModding.MODID)
 public class Registrator implements ModBlocks {
-	
+
+	static void setInnerRegistryNames(Registrable[] blocks) {
+
+		for(Registrable block : blocks) {
+			String customName = block.getCustomRegistryName();
+			Block unregistered = (Block) block;
+
+			unregistered.setUnlocalizedName(customName);
+			unregistered.setRegistryName(customName);
+
+		}
+
+	}
+
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> event) {
 
+		setInnerRegistryNames(ModBlocks.BLOCKS);
+
 		IForgeRegistry<Block> registry = event.getRegistry();
-		
-		for(Block block : ModBlocks.BLOCKS)
-			registry.register(block);
-		
+		for(Registrable block : ModBlocks.BLOCKS) {
+			Block unregistered = (Block) block;
+			registry.register(unregistered);
+		}
 	}
-	
+
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event) {
 		IForgeRegistry<Item> registry = event.getRegistry();
-		
-		for(Block block : ModBlocks.BLOCKS) {
-			Item itemBlock = new ItemBlock(block).setRegistryName(block.getRegistryName());
+
+		for(Registrable block : ModBlocks.BLOCKS) {
+			Block unregistered = (Block) block;
+			Item itemBlock = new ItemBlock(unregistered).setRegistryName
+					(unregistered.getRegistryName());
 			registry.register(itemBlock);
 		}
 
@@ -38,17 +55,15 @@ public class Registrator implements ModBlocks {
 
 	@SubscribeEvent
 	public static void registerModels(ModelRegistryEvent event) {
-		
-		for(Block block : ModBlocks.BLOCKS) {
-		Item item = Item.getItemFromBlock(block);
-		String id = block.getRegistryName().toString();
-		ModelLoader.setCustomModelResourceLocation(
-				item, 0, new ModelResourceLocation
-				(HandsOnModding.MODID + ":" + id, "inventory"));
+
+		for(Registrable block : ModBlocks.BLOCKS) {
+			Block unregistered = (Block) block;
+			Item item = Item.getItemFromBlock(unregistered);
+			String id = unregistered.getRegistryName().toString();
+			ModelLoader.setCustomModelResourceLocation(
+					item, 0, new ModelResourceLocation
+					(HandsOnModding.MODID + ":" + id, "inventory"));
 		}
 	}
 
-
-
-	
 }
