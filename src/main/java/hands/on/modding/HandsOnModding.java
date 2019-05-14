@@ -11,9 +11,9 @@ import tabs.TabEnhancedRedstone;
 @Mod(modid = HandsOnModding.MODID, name = HandsOnModding.NAME, version = HandsOnModding.VERSION)
 public class HandsOnModding
 {
-    public static final String MODID = "HOM";
-    public static final String NAME = "Hands On Modding";
-    public static final String VERSION = "1.0.0.1";
+    public static final String MODID = "examplemod";
+    public static final String NAME = "Example mod";
+    public static final String VERSION = "1.0.0";
 
     @SidedProxy(serverSide = "proxy.CommonProxy", clientSide = "proxy.ClientProxy")
     public static CommonProxy proxy;
@@ -24,12 +24,12 @@ public class HandsOnModding
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-
+    	proxy.preInit(event);
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-
+    	proxy.init(event);
     }
 }

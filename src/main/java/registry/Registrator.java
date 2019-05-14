@@ -1,5 +1,6 @@
 package registry;
 
+import blocks.test.BlockReceiver;
 import hands.on.modding.HandsOnModding;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -14,11 +15,13 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import tiles.ContainsTile;
 
-@Mod.EventBusSubscriber(modid = HandsOnModding.MODID)
-public class Registrator implements ModBlocks {
+//@Mod.EventBusSubscriber(modid = HandsOnModding.MODID)
+public class Registrator {
 
 	static void setInnerRegistryNames(Registrable[] blocks) {
-
+		
+		int i = 1; //crutch!
+		
 		for(Registrable block : blocks) {
 			String customName = block.getCustomRegistryName();
 			Block unregistered = (Block) block;
@@ -26,7 +29,11 @@ public class Registrator implements ModBlocks {
 			unregistered.setUnlocalizedName(customName);
 			unregistered.setRegistryName(customName);
 
-			registerTile(unregistered, customName);
+			//TODO temp crutch
+			if (i == 1) {
+//				registerTile(unregistered, customName);
+				i++;
+			}
 		}
 	}
 	
@@ -41,6 +48,11 @@ public class Registrator implements ModBlocks {
 	public static void registerBlocks(RegistryEvent.Register<Block> event) {
 
 		setInnerRegistryNames(ModBlocks.BLOCKS);
+		
+		//TODO GOVNO
+		BlockReceiver block1 = (BlockReceiver) ( ModBlocks.UNPOWERED_RECEIVER);
+		GameRegistry.registerTileEntity((block1).getTileEntityClass(), 
+				block1.getRegistryName().toString());
 
 		IForgeRegistry<Block> registry = event.getRegistry();
 		for(Registrable block : ModBlocks.BLOCKS) {

@@ -8,6 +8,8 @@ import gui.GuiConnectToReceiver;
 import hands.on.modding.HandsOnModding;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRedstoneDiode;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
@@ -27,10 +29,11 @@ implements Registrable, ContainsTile<TileRemote> {
 	protected TileRemote remoteConnection;
 	private static final Integer SIGNAL_STRENGTH = new Integer(100);
 	boolean connectionIsPowered;
-	BlockPos currentPos;
 	
 	protected WirelessDiode(boolean powered, String registryName) {
 		super(powered);
+		 setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+		
 		setCustomRegistryName(registryName);
 		
 		setCreativeTab(HandsOnModding.ENHANCED_REDSTONE);
@@ -50,7 +53,7 @@ implements Registrable, ContainsTile<TileRemote> {
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
 			EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-	
+	if(!worldIn.isRemote) {
 		remoteConnection = getTileEntity(worldIn, pos);
 		
 		Minecraft game = HandsOnModding.proxy.game;
@@ -61,6 +64,7 @@ implements Registrable, ContainsTile<TileRemote> {
 		} else {
 //			openWithoutSlots
 		}
+	}
 		return true;
 	}
 	
@@ -170,23 +174,30 @@ implements Registrable, ContainsTile<TileRemote> {
 		return remoteConnection.getPower();
 	}
 	
-	void setConnectionPositions(World worldIn, BlockPos currentPos, BlockPos remotePos) {
-		TileRemote remoteConnectionTile = getTileEntity(worldIn, remoteConnection.getPosition());
+	boolean isConnectedToRemote() {
+		return remoteConnection.isConnected();
+	}
+	 
+	void setConnection(World worldIn, boolean connected, BlockPos currentPos, BlockPos remotePos) {
+		TileRemote remoteConnectionTile = getTileEntity(worldIn, remotePos);
+		
+		remoteConnectionTile.setConnected(connected);
+		remoteConnection.setConnected(connected);
 		
 		remoteConnectionTile.setPosition(currentPos);
 		remoteConnection.setPosition(remotePos);
 	}
 	
 	void setConnectionPower(World worldIn, boolean currentPower) {
-		TileRemote remoteConnectionTile = getTileEntity(worldIn, remoteConnection.getPosition());
+		TileRemote remoteConnectionTile = getTileEntity(worldIn, getRemotePosition());
 		
 		remoteConnectionTile.setPower(currentPower);
 		remoteConnection.setPower(currentPower);
 	}
 	
-	void connectToRemote(World worldIn, BlockPos currentPos, BlockPos remotePos) {
+	public void connectToRemote(World worldIn, BlockPos currentPos, BlockPos remotePos) {
 		
-		setConnectionPositions(worldIn, currentPos, remotePos);
+		setConnection(worldIn, true, currentPos, remotePos);
 		
 		IBlockState state = worldIn.getBlockState(currentPos);
 		
@@ -194,10 +205,10 @@ implements Registrable, ContainsTile<TileRemote> {
 //		updateConnection();
 	}
 	
-	void disconnectFromRemote(World worldIn) {
+	public void disconnectFromRemote(World worldIn) {
 		
-		if(remoteConnection.getPos() != null) {
-			setConnectionPositions(worldIn, null, null);
+		if(isConnectedToRemote()) {
+			setConnection(worldIn, false, null, null);
 		}
 		
 	}
@@ -217,15 +228,15 @@ implements Registrable, ContainsTile<TileRemote> {
 		disconnectFromRemote(worldIn);
 		super.onBlockDestroyedByExplosion(worldIn, pos, explosionIn);
 	}
-	
-	@Override
-	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
-		
-		remoteConnection = getTileEntity(worldIn, pos);
-		disconnectFromRemote(worldIn);
-		super.breakBlock(worldIn, pos, state);
-	}
-	
+//	
+//	@Override
+//	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
+//		if (!worldIn.isRemote) {
+//			remoteConnection = getTileEntity(worldIn, pos);
+//			disconnectFromRemote(worldIn);
+//			super.breakBlock(worldIn, pos, state);
+//		}
+//	}
 	
 	@Override
     public Class<TileRemote> getTileEntityClass() {
@@ -238,5 +249,30 @@ implements Registrable, ContainsTile<TileRemote> {
 
         return new TileRemote();
     }
+    
+    
+    protected BlockStateContainer createBlockState()
+    {
+        return new BlockStateContainer(this, new IProperty[] {FACING});
+    }
+    
+    /**
+     * Convert the BlockState into the correct metadata value
+     */
+    public int getMetaFromState(IBlockState state)
+    {
+        int i = 0;
+        i = i | ((EnumFacing)state.getValue(FACING)).getHorizontalIndex();
+        return i;
+    }
+    
+    /**
+     * Convert the given metadata into a BlockState for this Block
+     */
+    public IBlockState getStateFromMeta(int meta)
+    {
+        return this.getDefaultState().withProperty(FACING, EnumFacing.getHorizontal(meta));
+    }
 	
+    
 }

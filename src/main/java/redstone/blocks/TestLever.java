@@ -10,8 +10,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import registry.Registrable;
 
-public class TestLever extends BlockLever {
+public class TestLever extends BlockLever implements Registrable {
 	
 	String name;
 	
@@ -22,8 +23,6 @@ public class TestLever extends BlockLever {
 		
 		this.name = newRegistryName;
 
-		setRegistryName(name);
-		setUnlocalizedName(name);
 
 		setCreativeTab(HandsOnModding.ENHANCED_REDSTONE);
 	}
@@ -51,4 +50,16 @@ public class TestLever extends BlockLever {
 	            return true;
 	        }
 		 }
+
+	@Override
+	public String getCustomRegistryName() {
+		// TODO Auto-generated method stub
+		return name;
+	}
+
+	@Override
+	public void setCustomRegistryName(String newName) {
+		name = newName;
+		
+	}
 }

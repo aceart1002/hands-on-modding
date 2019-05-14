@@ -102,7 +102,9 @@ public class TestTransmitter extends BlockRedstoneRepeater {
 		Integer integer = (Integer)unpoweredState.getValue(DELAY);
 		Boolean obool = (Boolean)unpoweredState.getValue(LOCKED);
 		EnumFacing enumfacing = (EnumFacing)unpoweredState.getValue(FACING);
-		return BlockReceiver.POWERED.getDefaultState().withProperty(FACING, enumfacing).withProperty(DELAY, integer).withProperty(LOCKED, obool);
+		
+		return null;
+//		return BlockReceiver.POWERED.getDefaultState().withProperty(FACING, enumfacing).withProperty(DELAY, integer).withProperty(LOCKED, obool);
 	}
 
 	
@@ -111,7 +113,9 @@ public class TestTransmitter extends BlockRedstoneRepeater {
 		   Integer integer = (Integer)poweredState.getValue(DELAY);
 	       Boolean obool = (Boolean)poweredState.getValue(LOCKED);
 	       EnumFacing enumfacing = (EnumFacing)poweredState.getValue(FACING);
-	       return BlockReceiver.UNPOWERED.getDefaultState().withProperty(FACING, enumfacing).withProperty(DELAY, integer).withProperty(LOCKED, obool);
+	       
+	       return null;
+//	       return BlockReceiver.UNPOWERED.getDefaultState().withProperty(FACING, enumfacing).withProperty(DELAY, integer).withProperty(LOCKED, obool);
 	   
 	}
 	

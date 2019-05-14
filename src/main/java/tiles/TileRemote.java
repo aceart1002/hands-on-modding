@@ -7,11 +7,24 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class TileRemote extends TileEntity {
+	
+	private boolean isConnected = false;
+
 	private boolean isPowered;
 	
 	private int x;
 	private int y;
 	private int z;
+	
+	public boolean isConnected() {
+		return isConnected;
+	}
+
+	public void setConnected(boolean connection) {
+		this.isConnected = connection;
+		
+		markDirty();
+	}
 	
 	public void setPower(boolean powered) {
 		isPowered = powered;
@@ -43,6 +56,8 @@ public class TileRemote extends TileEntity {
 	@Override
     public NBTTagCompound writeToNBT(NBTTagCompound tagCompound) {
 
+		tagCompound.setBoolean("isConnected", isConnected);
+		
         tagCompound.setInteger("x", x);
         tagCompound.setInteger("y", y);
         tagCompound.setInteger("z", z);
@@ -55,6 +70,8 @@ public class TileRemote extends TileEntity {
     @Override
     public void readFromNBT(NBTTagCompound tagCompound) {
 
+    	isConnected = tagCompound.getBoolean("isConnected");
+    	
         x = tagCompound.getInteger("x");
         y = tagCompound.getInteger("y");
         z = tagCompound.getInteger("z");

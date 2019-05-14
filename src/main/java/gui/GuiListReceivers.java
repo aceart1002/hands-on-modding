@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import blocks.test.BlockTransmitter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiListExtended;
 import net.minecraft.client.gui.GuiListWorldSelectionEntry;
@@ -31,7 +32,8 @@ public class GuiListReceivers extends GuiListExtended {
     {
         //sort list here
 		
-		List<BlockPos> list = TestTransmitter.getAvailableReceivers();
+//		List<BlockPos> list = TestTransmitter.getAvailableReceivers();
+		List<BlockPos> list = BlockTransmitter.getAvailableReceivers();
 		
 		for (BlockPos pos : list)
         {

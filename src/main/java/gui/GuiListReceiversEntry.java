@@ -23,7 +23,11 @@ public class GuiListReceiversEntry implements GuiListExtended.IGuiListEntry {
 	}
 
 	
-
+	BlockPos getPosition() {
+		return position;
+	}
+	
+	
 	@Override
 	public void drawEntry(int slotIndex, int x, int y, int listWidth, int slotHeight, int mouseX, int mouseY,
 			boolean isSelected, float partialTicks) {

@@ -2,11 +2,11 @@ package gui;
 
 import java.io.IOException;
 
-import org.lwjgl.input.Keyboard;
-
+import hands.on.modding.HandsOnModding;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiTextField;
+import net.minecraft.util.math.BlockPos;
 
 public class GuiConnectToReceiver extends GuiScreen {
 
@@ -25,7 +25,9 @@ public class GuiConnectToReceiver extends GuiScreen {
     public void initGui() {
         int id = 0;
         int i = 0;
-    
+        
+        
+        
         receiversSlots = new GuiListReceivers(this, mc, width, height, 32, height-64, 36);
         
         //renderer?
@@ -41,11 +43,13 @@ public class GuiConnectToReceiver extends GuiScreen {
     protected void actionPerformed(final GuiButton guiButton) {
         if (guiButton.enabled) {
          
+        	GuiListReceiversEntry entry = receiversSlots.getSelectedReceiver();
+        	
         	if(guiButton.id == connect.id) {
         		
+        		if(entry != null)
+        			HandsOnModding.proxy.connectToRemote(entry.getPosition());
         	}
-        	
-            
         }
     }
     

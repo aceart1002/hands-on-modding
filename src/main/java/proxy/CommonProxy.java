@@ -1,10 +1,24 @@
 package proxy;
 
-import net.minecraft.client.Minecraft;
+import blocks.test.WirelessDiode;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-public class CommonProxy {
+public abstract class CommonProxy {
 	
-	public static boolean testField;
+	 abstract public void displayScreen(GuiScreen screen);
+	abstract public void setWireless(WirelessDiode wireless);
+	abstract public void connectToRemote(BlockPos remotePos);
+	abstract public void disconnectFromRemote();
 	
-	public static final Minecraft game = Minecraft.getMinecraft();
+	 public void preInit(final FMLPreInitializationEvent event) {
+	    }
+	 
+	 public void init(final FMLInitializationEvent event) {
+
+	    }
+
+
 }

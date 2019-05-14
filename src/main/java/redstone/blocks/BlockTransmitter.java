@@ -1,12 +1,8 @@
 package redstone.blocks;
 
-import javax.sound.midi.Transmitter;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.math.BlockPos;
 
 public class BlockTransmitter extends WirelessDiode {
 
@@ -15,7 +11,7 @@ public class BlockTransmitter extends WirelessDiode {
 
 	public BlockTransmitter(boolean powered, String registryName) {
 		super(powered, registryName);
-		//		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(DELAY, Integer.valueOf(1)).withProperty(LOCKED, Boolean.valueOf(false)));
+//		 setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 
 	}
 

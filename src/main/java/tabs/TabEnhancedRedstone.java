@@ -20,7 +20,7 @@ public class TabEnhancedRedstone extends CreativeTabs {
 
 	@Override
 	public ItemStack getTabIconItem() {
-		return new ItemStack((Block) ModBlocks.TRANSMITTER);
+		return new ItemStack((Block) ModBlocks.UNPOWERED_RECEIVER);
 	}
 	
 }
