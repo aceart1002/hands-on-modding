@@ -12,9 +12,17 @@ public class TileRemote extends TileEntity {
 
 	private boolean isPowered;
 	
-	private int x;
-	private int y;
-	private int z;
+	private int posX;
+	private int posY;
+	private int posZ;
+	
+//	@Override
+//	public void setPos(BlockPos posIn) {
+//		if(pos != getPosition()) {
+//			super.setPos(posIn);
+//		}
+//		
+//	}
 	
 	public boolean isConnected() {
 		return isConnected;
@@ -22,13 +30,13 @@ public class TileRemote extends TileEntity {
 
 	public void setConnected(boolean connection) {
 		this.isConnected = connection;
-		
+
 		markDirty();
 	}
 	
 	public void setPower(boolean powered) {
 		isPowered = powered;
-		
+
 		markDirty();
 	}
 	
@@ -37,14 +45,16 @@ public class TileRemote extends TileEntity {
 	}
 	
 	public BlockPos getPosition() {
-		return new BlockPos(x,y,z);
+//		readFromNBT(new NBTTagCompound());
+		return new BlockPos(posX,posY,posZ);
 	}
 	
 	public void setPosition(BlockPos pos) {
-		x = pos.getX();
-		y = pos.getY();
-		z = pos.getZ();
-		
+		posX = pos.getX();
+		posY = pos.getY();
+		posZ = pos.getZ();
+	
+//		writeToNBT(new NBTTagCompound());
 		markDirty();
 	}
 	
@@ -58,9 +68,9 @@ public class TileRemote extends TileEntity {
 
 		tagCompound.setBoolean("isConnected", isConnected);
 		
-        tagCompound.setInteger("x", x);
-        tagCompound.setInteger("y", y);
-        tagCompound.setInteger("z", z);
+        tagCompound.setInteger("posX", posX);
+        tagCompound.setInteger("posY", posY);
+        tagCompound.setInteger("posZ", posZ);
         
         tagCompound.setBoolean("powered", isPowered);
 
@@ -72,18 +82,18 @@ public class TileRemote extends TileEntity {
 
     	isConnected = tagCompound.getBoolean("isConnected");
     	
-        x = tagCompound.getInteger("x");
-        y = tagCompound.getInteger("y");
-        z = tagCompound.getInteger("z");
+        posX = tagCompound.getInteger("posX");
+        posY = tagCompound.getInteger("posY");
+        posZ = tagCompound.getInteger("posZ");
         
         tagCompound.getBoolean("powered");
 
         super.readFromNBT(tagCompound);
     }
     
-    @Override
-	public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newSate)
-	{
-	    return (oldState.getBlock() != newSate.getBlock());
-	}
+//    @Override
+//	public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newSate)
+//	{
+//	    return (oldState.getBlock() != newSate.getBlock());
+//	}
 }

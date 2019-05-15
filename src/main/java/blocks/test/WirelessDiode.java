@@ -24,9 +24,6 @@ AbstractWithTileRegistrableContainsProperties<TileRemote> {
 	
 	private static final Integer SIGNAL_STRENGTH = new Integer(100);
 	
-	private TileRemote localTile;
-	private TileRemote remoteTile;
-	
 	static protected List<BlockPos> availableConnects;
 	
 	public World currentWorld;
@@ -103,6 +100,14 @@ AbstractWithTileRegistrableContainsProperties<TileRemote> {
 //            }
 //            else if (!this.isRepeaterPowered)
 //            {
+			TileRemote tile1 = getTileEntity(worldIn, pos);
+			TileRemote tile2 = getTileEntity(worldIn, tile1.getPosition());
+			
+			BlockPos remotePos = tile1.getPosition();
+			BlockPos currentPos = tile2.getPosition();
+			
+			BlockPos pos3 = getRemotePosition(worldIn, pos);
+			
             	updateConnection(worldIn, pos, state);
                 //worldIn.setBlockState(pos, this.getPoweredState(state), 2);
 
@@ -132,17 +137,29 @@ AbstractWithTileRegistrableContainsProperties<TileRemote> {
 		boolean connectionPower = shouldBePowered(worldIn, pos, state);
 //		setPower(remoteConnection, connectionIsPowered);
 
+		boolean runRemote = isConnectedToRemote(worldIn, pos);
+		BlockPos remotePos = null;
+		if(runRemote) {
+			remotePos = getRemotePosition(worldIn, pos);
+		}
+		
 		//update this block
 		IBlockState newState = getNewState(this, connectionPower, state);
 		updateBlock(worldIn, state, newState, pos);
 		
 		//update remote block
-		if(isConnectedToRemote(worldIn, pos)) {
-			BlockPos remotePos = getRemotePosition(worldIn, pos);
+		if(runRemote) {
+			
 //			setPower(getTileEntity(worldIn, remotePos), connectionIsPowered);
 			updateBlock(worldIn, remotePos, connectionPower);
 
+			setConnection(worldIn, true, pos, remotePos);
 			refreshPower(worldIn, connectionPower, pos, remotePos);
+			
+//			worldIn.updateBlockTick(remotePos, 
+//					worldIn.getBlockState(remotePos).getBlock(), 
+//					this.getDelay(worldIn.getBlockState(remotePos)), -1);
+			
 		}
 	}
 	
@@ -154,10 +171,13 @@ AbstractWithTileRegistrableContainsProperties<TileRemote> {
         
 	}
 	
+	
+	
 	void refreshPower(World worldIn, boolean connectionPower,
 			BlockPos currentPos, BlockPos remotePos) {
 		
-		refreshTiles(worldIn, currentPos, remotePos);
+		TileRemote localTile = getTileEntity(worldIn, currentPos);
+		TileRemote remoteTile = getTileEntity(worldIn, remotePos);
 		
 		remoteTile.setPower(connectionPower);
 		localTile.setPower(connectionPower);
@@ -173,15 +193,23 @@ AbstractWithTileRegistrableContainsProperties<TileRemote> {
 //		}
 //	}
 	
-	void refreshTiles(World worldIn, BlockPos currentPos, BlockPos remotePos) {
-		localTile = getTileEntity(worldIn, currentPos);
-		remoteTile = getTileEntity(worldIn, remotePos);
-	}
+//	void refreshTiles(World worldIn, BlockPos currentPos, BlockPos remotePos) {
+//		localTile = getTileEntity(worldIn, currentPos);
+//		remoteTile = getTileEntity(worldIn, remotePos);
+//	}
+	
+//	updateTileEntity(World worldIn, BlockPos tilePos, BlockPos storePos) {
+//		TileRemote tile = getTileEntity(worldIn, tilePos);
+//		tile.setPosition(storePos);
+//		
+//	}
 	
 	private void setConnection(World worldIn, boolean connected,
 			BlockPos currentPos, BlockPos remotePos) {
 		
-		refreshTiles(worldIn, currentPos, remotePos);
+		TileRemote localTile = getTileEntity(worldIn, currentPos);
+		TileRemote remoteTile = getTileEntity(worldIn, remotePos);
+//		refreshTiles(worldIn, currentPos, remotePos);
 		remoteTile.setConnected(connected);
 		localTile.setConnected(connected);
 		
@@ -215,9 +243,9 @@ AbstractWithTileRegistrableContainsProperties<TileRemote> {
 	@Override
 	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
 		if (!worldIn.isRemote) {
-			disconnectFromRemote(worldIn, pos, state);
+//			disconnectFromRemote(worldIn, pos, state);
 		}
-		super.breakBlock(worldIn, pos, state);
+//		super.breakBlock(worldIn, pos, state);
 	}
 
 	void updateBlock(World worldIn, BlockPos pos, boolean connectionPower) {
@@ -234,22 +262,22 @@ AbstractWithTileRegistrableContainsProperties<TileRemote> {
 		
 		if(newState != oldState)
 			worldIn.setBlockState(pos, newState);
-	
+		
 	}
 	
 	BlockPos getRemotePosition(World worldIn, BlockPos pos) {
-		localTile = getTileEntity(worldIn, pos);
+		TileRemote localTile = getTileEntity(worldIn, pos);
 		return localTile.getPosition();
 	}
 	
 	 boolean getRemotePower(World worldIn, BlockPos pos) {
-		localTile = getTileEntity(worldIn, pos);
+		 TileRemote localTile = getTileEntity(worldIn, pos);
 		return localTile.getPower();
 	}
 	 
 	 boolean isConnectedToRemote(World worldIn, BlockPos position) {
 		 
-			 localTile = getTileEntity(worldIn, position);
+		 TileRemote localTile = getTileEntity(worldIn, position);
 //			 if (localTile != null)
 				 return localTile.isConnected();
 //			 else
