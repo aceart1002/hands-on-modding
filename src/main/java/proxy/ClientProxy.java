@@ -1,45 +1,63 @@
 package proxy;
 
-import blocks.test.WirelessDiode;
+import blocks.redstone.wireless.WirelessDiode;
+import gui.GuiEstablishedConnection;
+import gui.GuiInitiateConnection;
+import hands.on.modding.Modes;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ClientProxy extends CommonProxy {
-	
-	public static boolean testField = false;
 
 	public static final Minecraft game = Minecraft.getMinecraft();
-	private WirelessDiode wireless;
+
+//	public void disconnectFromRemote() {
+//		World world = wireless.currentData.world;
+//		BlockPos pos = wireless.currentData.position;
+//		wireless.disconnectFromRemote(world, pos);
+//	}
+
+
+//	@Override
+//	public void updateTag(String name, BlockPos pos) {
+//		World world = wireless.currentData.world;
+//		wireless.setTag(name, pos, world);
+//	}
 
 	@Override
-	public void setWireless(WirelessDiode wireless) {
-		this.wireless = wireless;
+	public void displayScreen(Modes mode) {
+		try {
+			switch(mode) {
+			case NEW_CONNECTION: 
+				game.displayGuiScreen(
+						new GuiInitiateConnection(game.currentScreen));
+				break;
+			case EXISTING_CONNECTION: 
+				game.displayGuiScreen(
+						new GuiEstablishedConnection(game.currentScreen));
+				break;
+			}
+		} catch (Exception e) {
+			System.out.println("Screen render exception");
+		}
 	}
 
-	public void connectToRemote(BlockPos remotePos) {
-		wireless.connectToRemote(wireless.currentWorld, wireless.currentPos, remotePos);
+	@Override
+	public void preInit(final FMLPreInitializationEvent event) {
+		super.preInit(event);
 	}
-	
-	public void disconnectFromRemote() {
-//		wireless.disconnectFromRemote(worldIn, currentPos, state);
-	}
-	
-	public void displayScreen(GuiScreen screen) {
-		game.displayGuiScreen(screen);
-	}
-	
+
 	@Override
 	public void init(final FMLInitializationEvent event) {
 		super.init(event);
-
-//		MinecraftForge.EVENT_BUS.register(InputHandler.INSTANCE);
-
-
 	}
 
-	
+	public void postInit(final FMLPostInitializationEvent event) {
+		super.postInit(event);
+	}
 
-	
 }

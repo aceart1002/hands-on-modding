@@ -1,7 +1,7 @@
 [
 {
-  "modid": "redstone",
-  "name": "Wireless redstone",
+  "modid": "hands_on_modding",
+  "name": "Hands on modding",
   "description": "Wireless.",
   "version": "${version}",
   "mcversion": "${mcversion}",

@@ -1,6 +1,5 @@
 package registry;
 
-import blocks.test.BlockReceiver;
 import hands.on.modding.HandsOnModding;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -15,57 +14,39 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import tiles.ContainsTile;
 
-//@Mod.EventBusSubscriber(modid = HandsOnModding.MODID)
+@Mod.EventBusSubscriber(modid = HandsOnModding.MODID)
 public class Registrator {
 
-	static void setInnerRegistryNames(Registrable[] blocks) {
-		
-		int i = 1; //crutch!
-		
-		for(Registrable block : blocks) {
-			String customName = block.getCustomRegistryName();
-			Block unregistered = (Block) block;
-
-			unregistered.setUnlocalizedName(customName);
-			unregistered.setRegistryName(customName);
-
-			//TODO temp crutch
-			if (i == 1) {
-//				registerTile(unregistered, customName);
-				i++;
-			}
-		}
-	}
-	
-	static void registerTile(Block block, String registryName) {
-		if(block instanceof ContainsTile<?>) {
-			ContainsTile<?> unregistered = (ContainsTile<?>) block;
-			GameRegistry.registerTileEntity((unregistered).getTileEntityClass(), registryName);
-		}
-	}
 
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> event) {
 
-		setInnerRegistryNames(ModBlocks.BLOCKS);
-		
-		//TODO GOVNO
-		BlockReceiver block1 = (BlockReceiver) ( ModBlocks.UNPOWERED_RECEIVER);
-		GameRegistry.registerTileEntity((block1).getTileEntityClass(), 
-				block1.getRegistryName().toString());
+		for(Registrable unregistered : ModBlocks.ALL_BLOCKS) {
+			String customName = unregistered.getCustomRegistryName();
 
-		IForgeRegistry<Block> registry = event.getRegistry();
-		for(Registrable block : ModBlocks.BLOCKS) {
-			Block unregistered = (Block) block;
-			registry.register(unregistered);
+			((Block)unregistered).setUnlocalizedName(customName);
+			((Block)unregistered).setRegistryName(customName);
+			//((Block)unregistered).setRegistryName(HandsOnModding.MODID + ":" + customName);
+
 		}
+		
+		IForgeRegistry<Block> registry = event.getRegistry();
+		for(Registrable unregistered : ModBlocks.ALL_BLOCKS) {
+			registry.register((Block)unregistered);
+		}
+		
+		for(ContainsTile<?> blockWithTile : ModBlocks.BLOCKS_WITH_TILES) {
+//			ContainsTile<?> unregistered = (ContainsTile<?>) block;
+			GameRegistry.registerTileEntity((blockWithTile).getTileEntityClass(), ((Registrable)blockWithTile).getCustomRegistryName());
+		}
+
 	}
 
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event) {
 		IForgeRegistry<Item> registry = event.getRegistry();
 
-		for(Registrable block : ModBlocks.BLOCKS) {
+		for(Registrable block : ModBlocks.ALL_BLOCKS) {
 			Block unregistered = (Block) block;
 			Item itemBlock = new ItemBlock(unregistered).setRegistryName
 					(unregistered.getRegistryName());
@@ -77,13 +58,19 @@ public class Registrator {
 	@SubscribeEvent
 	public static void registerModels(ModelRegistryEvent event) {
 
-		for(Registrable block : ModBlocks.BLOCKS) {
+		for(Registrable block : ModBlocks.ALL_BLOCKS) {
+			
 			Block unregistered = (Block) block;
 			Item item = Item.getItemFromBlock(unregistered);
 			String id = unregistered.getRegistryName().toString();
+			
+			
+//			String fullVariant = "inventory";
+			//if(id.equals("hands_on_modding:unpowered_transmitter")) fullVariant = "facing=north";
+			
 			ModelLoader.setCustomModelResourceLocation(
-					item, 0, new ModelResourceLocation
-					(HandsOnModding.MODID + ":" + id, "inventory"));
+					item, 0, new ModelResourceLocation(id, "inventory"));
+			//HandsOnModding.MODID + ":" + id
 		}
 	}
 
