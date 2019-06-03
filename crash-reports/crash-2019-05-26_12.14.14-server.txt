@@ -1,0 +1,65 @@
+---- Minecraft Crash Report ----
+// Who set us up the TNT?
+
+Time: 26.05.19 12:14
+Description: Exception in server tick loop
+
+java.lang.NoClassDefFoundError: gui/GuiAbstractRemoteConnection
+	at registry.ModBlocks.<clinit>(ModBlocks.java:11)
+	at registry.Registrator.registerBlocks(Registrator.java:25)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_5_Registrator_registerBlocks_Register.invoke(.dynamic)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90)
+	at net.minecraftforge.fml.common.eventhandler.EventBus$1.invoke(EventBus.java:144)
+	at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:182)
+	at net.minecraftforge.registries.GameData.fireRegistryEvents(GameData.java:777)
+	at net.minecraftforge.fml.common.Loader.preinitializeMods(Loader.java:628)
+	at net.minecraftforge.fml.server.FMLServerHandler.beginServerLoading(FMLServerHandler.java:99)
+	at net.minecraftforge.fml.common.FMLCommonHandler.onServerStart(FMLCommonHandler.java:333)
+	at net.minecraft.server.dedicated.DedicatedServer.init(DedicatedServer.java:128)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:552)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.ClassNotFoundException: gui.GuiAbstractRemoteConnection
+	at net.minecraft.launchwrapper.LaunchClassLoader.findClass(LaunchClassLoader.java:191)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 13 more
+Caused by: java.lang.NoClassDefFoundError: net/minecraft/client/gui/GuiScreen
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:763)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+	at net.minecraft.launchwrapper.LaunchClassLoader.findClass(LaunchClassLoader.java:182)
+	... 15 more
+Caused by: java.lang.ClassNotFoundException: net.minecraft.client.gui.GuiScreen
+	at net.minecraft.launchwrapper.LaunchClassLoader.findClass(LaunchClassLoader.java:101)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 19 more
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_192, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 339783256 bytes (324 MB) / 428343296 bytes (408 MB) up to 1883242496 bytes (1796 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP 9.42 Powered by Forge 14.23.5.2768 5 mods loaded, 5 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State | ID               | Version      | Source                           | Signature |
+	|:----- |:---------------- |:------------ |:-------------------------------- |:--------- |
+	| UCH   | minecraft        | 1.12.2       | minecraft.jar                    | None      |
+	| UCH   | mcp              | 9.42         | minecraft.jar                    | None      |
+	| UCH   | FML              | 8.0.99.99    | forgeSrc-1.12.2-14.23.5.2768.jar | None      |
+	| UCH   | forge            | 14.23.5.2768 | forgeSrc-1.12.2-14.23.5.2768.jar | None      |
+	| UCH   | hands_on_modding | 1.0.0        | bin                              | None      |
+
+	Loaded coremods (and transformers): 
+	Profiler Position: N/A (disabled)
+	Is Modded: Definitely; Server brand changed to 'fml,forge'
+	Type: Dedicated Server (map_server.txt)

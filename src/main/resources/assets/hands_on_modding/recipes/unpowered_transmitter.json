@@ -1,0 +1,21 @@
+{
+    "type" : "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "   ",
+        "CO ",
+        "   "
+    ],
+    
+    "key":
+    {
+        "C" : { "item" : "minecraft:cobblestone" },
+        "O" : { "item" : "minecraft:bowl" }
+    },
+    
+     "result" : 
+    {
+        "item" : "hands_on_modding:unpowered_transmitter"
+    }
+}

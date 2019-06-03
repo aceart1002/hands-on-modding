@@ -1,0 +1,122 @@
+[21:07:11] [main/INFO] [GradleStart]: Extra: []
+[21:07:11] [main/INFO] [GradleStart]: Running with arguments: [--tweakClass, net.minecraftforge.fml.common.launcher.FMLServerTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[21:07:11] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLServerTweaker
+[21:07:11] [main/INFO] [LaunchWrapper]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLServerTweaker
+[21:07:11] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[21:07:11] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLServerTweaker
+[21:07:13] [main/INFO] [FML]: Forge Mod Loader version 14.23.5.2768 for Minecraft 1.12.2 loading
+[21:07:13] [main/INFO] [FML]: Java is Java HotSpot(TM) 64-Bit Server VM, version 1.8.0_192, running on Windows 10:amd64:10.0, installed at C:\Program Files\Java\jdk1.8.0_192\jre
+[21:07:13] [main/ERROR] [FML]: Apache Maven library folder was not in the format expected. Using default libraries directory.
+[21:07:13] [main/ERROR] [FML]: Full: C:\Users\Ace Art\.gradle\caches\modules-2\files-2.1\org.apache.maven\maven-artifact\3.5.3\7dc72b6d6d8a6dced3d294ed54c2cc3515ade9f4\maven-artifact-3.5.3.jar
+[21:07:13] [main/ERROR] [FML]: Trimmed: c:/users/ace art/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-artifact/3.5.3/
+[21:07:13] [main/INFO] [FML]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[21:07:13] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLCorePlugin (net.minecraftforge.fml.relauncher.FMLCorePlugin), we are in deobf and it's a forge core plugin
+[21:07:13] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLForgePlugin (net.minecraftforge.classloading.FMLForgePlugin), we are in deobf and it's a forge core plugin
+[21:07:13] [main/INFO] [FML]: Searching D:\Games\Minecraft\Modding\hands-on-modding\.\mods for mods
+[21:07:13] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
+[21:07:13] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.fml.relauncher.FMLCorePlugin
+[21:07:13] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
+[21:07:13] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[21:07:13] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[21:07:13] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[21:07:13] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[21:07:13] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[21:07:13] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[21:07:15] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[21:07:15] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[21:07:15] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[21:07:16] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[21:07:16] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.TerminalTweaker
+[21:07:16] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.TerminalTweaker
+[21:07:17] [main/INFO] [LaunchWrapper]: Launching wrapped minecraft {net.minecraft.server.MinecraftServer}
+[21:07:23] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer]: Starting minecraft server version 1.12.2
+[21:07:23] [Server thread/INFO] [FML]: MinecraftForge v14.23.5.2768 Initialized
+[21:07:23] [Server thread/INFO] [FML]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[21:07:23] [Server thread/INFO] [FML]: Replaced 1036 ore ingredients
+[21:07:24] [Server thread/INFO] [FML]: Searching D:\Games\Minecraft\Modding\hands-on-modding\.\mods for mods
+[21:07:25] [Server thread/INFO] [FML]: Forge Mod Loader has identified 5 mods to load
+[21:07:25] [Server thread/WARN] [FML]: Missing English translation for FML: assets/fml/lang/en_us.lang
+[21:07:25] [Server thread/WARN] [FML]: Missing English translation for hands_on_modding: /D:/Games/Minecraft/Modding/hands-on-modding/bin/assets/hands_on_modding/lang/en_us.lang
+[21:07:25] [Server thread/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, FML, forge, hands_on_modding] at CLIENT
+[21:07:25] [Server thread/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, FML, forge, hands_on_modding] at SERVER
+[21:07:26] [Server thread/INFO] [FML]: Processing ObjectHolder annotations
+[21:07:26] [Server thread/INFO] [FML]: Found 1168 ObjectHolder annotations
+[21:07:26] [Server thread/INFO] [FML]: Identifying ItemStackHolder annotations
+[21:07:26] [Server thread/INFO] [FML]: Found 0 ItemStackHolder annotations
+[21:07:26] [Server thread/INFO] [FML]: Configured a dormant chunk cache size of 0
+[21:07:26] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Starting version check at http://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[21:07:26] [Server thread/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `unpowered_transmitter`, expected `hands_on_modding`. This could be a intended override, but in most cases indicates a broken mod.
+[21:07:26] [Server thread/INFO] [FML]: Applying holder lookups
+[21:07:26] [Server thread/INFO] [FML]: Holder lookups applied
+[21:07:26] [Server thread/INFO] [FML]: Applying holder lookups
+[21:07:26] [Server thread/INFO] [FML]: Holder lookups applied
+[21:07:26] [Server thread/INFO] [FML]: Applying holder lookups
+[21:07:26] [Server thread/INFO] [FML]: Holder lookups applied
+[21:07:26] [Server thread/INFO] [FML]: Applying holder lookups
+[21:07:26] [Server thread/INFO] [FML]: Holder lookups applied
+[21:07:26] [Server thread/INFO] [FML]: Injecting itemstacks
+[21:07:26] [Server thread/INFO] [FML]: Itemstack injection complete
+[21:07:26] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer]: Loading properties
+[21:07:26] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer]: Default game type: CREATIVE
+[21:07:26] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer]: Generating keypair
+[21:07:27] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer]: Starting Minecraft server on *:25565
+[21:07:27] [Server thread/INFO] [net.minecraft.network.NetworkSystem]: Using default channel type
+[21:07:27] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Found status: UP_TO_DATE Target: null
+[21:07:28] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[21:07:28] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer]: The server will make no attempt to authenticate usernames. Beware.
+[21:07:28] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[21:07:28] [Server thread/WARN] [net.minecraft.server.dedicated.DedicatedServer]: To change this, set "online-mode" to "true" in the server.properties file.
+[21:07:28] [Server thread/INFO] [FML]: Applying holder lookups
+[21:07:28] [Server thread/INFO] [FML]: Holder lookups applied
+[21:07:28] [Server thread/INFO] [FML]: Injecting itemstacks
+[21:07:28] [Server thread/INFO] [FML]: Itemstack injection complete
+[21:07:28] [Server thread/INFO] [FML]: Forge Mod Loader has successfully loaded 5 mods
+[21:07:28] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer]: Preparing level "world"
+[21:07:28] [Server thread/INFO] [FML]: Injecting existing registry data into this server instance
+[21:07:28] [Server thread/INFO] [FML]: Applying holder lookups
+[21:07:28] [Server thread/INFO] [FML]: Holder lookups applied
+[21:07:28] [Server thread/INFO] [FML]: Loading dimension 0 (world) (net.minecraft.server.dedicated.DedicatedServer@6f1a8507)
+[21:07:29] [Server thread/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 488 advancements
+[21:07:29] [Server thread/INFO] [FML]: Loading dimension -1 (world) (net.minecraft.server.dedicated.DedicatedServer@6f1a8507)
+[21:07:30] [Server thread/INFO] [FML]: Loading dimension 1 (world) (net.minecraft.server.dedicated.DedicatedServer@6f1a8507)
+[21:07:30] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing start region for level 0
+[21:07:31] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 0%
+[21:07:32] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 6%
+[21:07:33] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 56%
+[21:07:34] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 87%
+[21:07:34] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer]: Done (6,441s)! For help, type "help" or "?"
+[21:07:35] [Server thread/INFO] [FML]: Unloading dimension -1
+[21:07:35] [Server thread/INFO] [FML]: Unloading dimension 1
+[22:04:25] [Netty Server IO #1/INFO] [FML]: Client protocol version 2
+[22:04:25] [Netty Server IO #1/INFO] [FML]: Client attempting to join with 5 mods : minecraft@1.12.2,FML@8.0.99.99,forge@14.23.5.2811,hands_on_modding@1.0.0,mcp@9.42
+[22:04:25] [Server thread/INFO] [FML]: [Server thread] Server side modded connection established
+[22:04:25] [Server thread/INFO] [net.minecraft.server.management.PlayerList]: MonkeyMan[/192.168.0.105:5824] logged in with entity id 289 at (-4.370023612061179, 97.0, 76.66869401970952)
+[22:04:25] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer]: MonkeyMan joined the game
+[22:04:38] [Server thread/INFO] [STDOUT]: [proxy.ServerProxy:displayScreen:17]: server screen call
+[22:04:38] [Server thread/WARN] [net.minecraft.server.MinecraftServer]: Can't keep up! Did the system time change, or is the server overloaded? Running 2646ms behind, skipping 52 tick(s)
+[22:04:40] [Server thread/INFO] [STDOUT]: [proxy.ServerProxy:displayScreen:17]: server screen call
+[22:04:40] [Server thread/INFO] [STDOUT]: [proxy.ServerProxy:displayScreen:17]: server screen call
+[22:04:41] [Server thread/INFO] [STDOUT]: [proxy.ServerProxy:displayScreen:17]: server screen call
+[22:04:41] [Server thread/INFO] [STDOUT]: [proxy.ServerProxy:displayScreen:17]: server screen call
+[22:04:42] [Server thread/INFO] [STDOUT]: [proxy.ServerProxy:displayScreen:17]: server screen call
+[22:04:44] [Server thread/INFO] [STDOUT]: [proxy.ServerProxy:displayScreen:17]: server screen call
+[22:04:57] [Server thread/INFO] [STDOUT]: [proxy.ServerProxy:displayScreen:17]: server screen call
+[22:07:38] [Netty Server IO #1/ERROR] [FML]: NetworkDispatcher exception
+java.io.IOException: Удаленный хост принудительно разорвал существующее подключение
+	at sun.nio.ch.SocketDispatcher.read0(Native Method) ~[?:1.8.0_192]
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43) ~[?:1.8.0_192]
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223) ~[?:1.8.0_192]
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192) ~[?:1.8.0_192]
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380) ~[?:1.8.0_192]
+	at io.netty.buffer.PooledUnsafeDirectByteBuf.setBytes(PooledUnsafeDirectByteBuf.java:288) ~[PooledUnsafeDirectByteBuf.class:4.1.9.Final]
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1100) ~[AbstractByteBuf.class:4.1.9.Final]
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:372) ~[NioSocketChannel.class:4.1.9.Final]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:123) [AbstractNioByteChannel$NioByteUnsafe.class:4.1.9.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:624) [NioEventLoop.class:4.1.9.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:559) [NioEventLoop.class:4.1.9.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:476) [NioEventLoop.class:4.1.9.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:438) [NioEventLoop.class:4.1.9.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:858) [SingleThreadEventExecutor$5.class:4.1.9.Final]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_192]
+[22:07:38] [Server thread/INFO] [net.minecraft.network.NetHandlerPlayServer]: MonkeyMan lost connection: Internal Exception: java.io.IOException: Удаленный хост принудительно разорвал существующее подключение
+[22:07:38] [Server thread/INFO] [net.minecraft.server.dedicated.DedicatedServer]: MonkeyMan left the game

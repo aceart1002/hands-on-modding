@@ -1,0 +1,6 @@
+language.name=English
+language.region=US
+language.code=en_US
+
+tile.unpowered_transmitter.name=Transmitter
+tile.autoverse.inventory_reader_slots.name=Inventory Reader (Slots)

@@ -1,0 +1,104 @@
+---- Minecraft Crash Report ----
+// Why did you do that?
+
+Time: 5/16/19 12:29 AM
+Description: Exception while ticking a block
+
+java.lang.NullPointerException: Exception while ticking a block
+	at net.minecraft.world.World.isOutsideBuildHeight(World.java:270)
+	at net.minecraft.world.World.getTileEntity(World.java:2598)
+	at blocks.test.AbstractWithTileRegistrableContainsProperties.getTileEntity(AbstractWithTileRegistrableContainsProperties.java:77)
+	at blocks.test.WirelessDiode.setConnection(WirelessDiode.java:232)
+	at blocks.test.WirelessDiode.disconnectFromRemote(WirelessDiode.java:262)
+	at blocks.test.WirelessDiode.breakBlock(WirelessDiode.java:274)
+	at net.minecraft.world.chunk.Chunk.setBlockState(Chunk.java:615)
+	at net.minecraft.world.World.setBlockState(World.java:401)
+	at net.minecraft.world.World.setBlockState(World.java:489)
+	at blocks.test.WirelessDiode.updateBlock(WirelessDiode.java:291)
+	at blocks.test.WirelessDiode.updateBlock(WirelessDiode.java:284)
+	at blocks.test.WirelessDiode.updateConnection(WirelessDiode.java:180)
+	at blocks.test.WirelessDiode.updateTick(WirelessDiode.java:132)
+	at net.minecraft.world.WorldServer.tickUpdates(WorldServer.java:773)
+	at net.minecraft.world.WorldServer.tick(WorldServer.java:232)
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:831)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:743)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:192)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:592)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at net.minecraft.world.World.isOutsideBuildHeight(World.java:270)
+	at net.minecraft.world.World.getTileEntity(World.java:2598)
+	at blocks.test.AbstractWithTileRegistrableContainsProperties.getTileEntity(AbstractWithTileRegistrableContainsProperties.java:77)
+	at blocks.test.WirelessDiode.setConnection(WirelessDiode.java:232)
+	at blocks.test.WirelessDiode.disconnectFromRemote(WirelessDiode.java:262)
+	at blocks.test.WirelessDiode.breakBlock(WirelessDiode.java:274)
+	at net.minecraft.world.chunk.Chunk.setBlockState(Chunk.java:615)
+	at net.minecraft.world.World.setBlockState(World.java:401)
+	at net.minecraft.world.World.setBlockState(World.java:489)
+	at blocks.test.WirelessDiode.updateBlock(WirelessDiode.java:291)
+	at blocks.test.WirelessDiode.updateBlock(WirelessDiode.java:284)
+	at blocks.test.WirelessDiode.updateConnection(WirelessDiode.java:180)
+	at blocks.test.WirelessDiode.updateTick(WirelessDiode.java:132)
+
+-- Block being ticked --
+Details:
+	Block: examplemod:unpowered_transmitter[facing=north]
+	Block location: World: (-34,56,-519), Chunk: (at 14,3,9 in -3,-33; contains blocks -48,0,-528 to -33,255,-513), Region: (-1,-2; contains chunks -32,-64 to -1,-33, blocks -512,0,-1024 to -1,255,-513)
+Stacktrace:
+	at net.minecraft.world.WorldServer.tickUpdates(WorldServer.java:773)
+	at net.minecraft.world.WorldServer.tick(WorldServer.java:232)
+
+-- Affected level --
+Details:
+	Level name: New World
+	All players: 1 total; [EntityPlayerMP['Player305'/0, l='New World', x=-30.51, y=56.00, z=-521.52]]
+	Chunk stats: ServerChunkCache: 625 Drop: 0
+	Level seed: -4008173324552713044
+	Level generator: ID 01 - flat, ver 0. Features enabled: true
+	Level generator options: 3;minecraft:bedrock,3*minecraft:stone,52*minecraft:sandstone;2;
+	Level spawn location: World: (-21,4,-537), Chunk: (at 11,0,7 in -2,-34; contains blocks -32,0,-544 to -17,255,-529), Region: (-1,-2; contains chunks -32,-64 to -1,-33, blocks -512,0,-1024 to -1,255,-513)
+	Level time: 3926 game time, 3926 day time
+	Level dimension: 0
+	Level storage version: 0x04ABD - Anvil
+	Level weather: Rain time: 108335 (now: false), thunder time: 11341 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: true
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:831)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:743)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:192)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:592)
+	at java.lang.Thread.run(Thread.java:748)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_192, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 256416224 bytes (244 MB) / 932184064 bytes (889 MB) up to 1883242496 bytes (1796 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP 9.42 Powered by Forge 14.23.5.2768 5 mods loaded, 5 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State     | ID         | Version      | Source                           | Signature |
+	|:--------- |:---------- |:------------ |:-------------------------------- |:--------- |
+	| UCHIJAAAA | minecraft  | 1.12.2       | minecraft.jar                    | None      |
+	| UCHIJAAAA | mcp        | 9.42         | minecraft.jar                    | None      |
+	| UCHIJAAAA | FML        | 8.0.99.99    | forgeSrc-1.12.2-14.23.5.2768.jar | None      |
+	| UCHIJAAAA | forge      | 14.23.5.2768 | forgeSrc-1.12.2-14.23.5.2768.jar | None      |
+	| UCHIJAAAA | examplemod | 1.0.0        | bin                              | None      |
+
+	Loaded coremods (and transformers): 
+	GL info: ~~ERROR~~ RuntimeException: No OpenGL context found in the current thread.
+	Profiler Position: N/A (disabled)
+	Player Count: 1 / 8; [EntityPlayerMP['Player305'/0, l='New World', x=-30.51, y=56.00, z=-521.52]]
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fml,forge'

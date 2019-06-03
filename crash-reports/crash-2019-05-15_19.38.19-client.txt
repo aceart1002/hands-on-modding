@@ -1,0 +1,116 @@
+---- Minecraft Crash Report ----
+// Daisy, daisy...
+
+Time: 5/15/19 7:38 PM
+Description: Rendering screen
+
+java.lang.NullPointerException: Rendering screen
+	at gui.GuiInitiateConnection.drawScreen(GuiInitiateConnection.java:104)
+	at net.minecraftforge.client.ForgeHooksClient.drawScreen(ForgeHooksClient.java:381)
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1177)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1208)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:441)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
+	at GradleStart.main(GradleStart.java:25)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Client thread
+Stacktrace:
+	at gui.GuiInitiateConnection.drawScreen(GuiInitiateConnection.java:104)
+	at net.minecraftforge.client.ForgeHooksClient.drawScreen(ForgeHooksClient.java:381)
+
+-- Screen render details --
+Details:
+	Screen name: gui.GuiInitiateConnection
+	Mouse location: Scaled: (240, 125). Absolute: (960, 500)
+	Screen size: Scaled: (480, 251). Absolute: (1920, 1001). Scale factor of 4
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [EntityPlayerSP['Player453'/68, l='MpServer', x=1268.61, y=64.00, z=1305.01]]
+	Chunk stats: MultiplayerChunkCache: 599, 599
+	Level seed: 0
+	Level generator: ID 01 - flat, ver 0. Features enabled: false
+	Level generator options: 
+	Level spawn location: World: (1103,4,964), Chunk: (at 15,0,4 in 68,60; contains blocks 1088,0,960 to 1103,255,975), Region: (2,1; contains chunks 64,32 to 95,63, blocks 1024,0,512 to 1535,255,1023)
+	Level time: 74892 game time, 13295 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: false
+	Forced entities: 40 total; [EntitySpider['Spider'/5312, l='MpServer', x=1200.50, y=64.00, z=1253.50], EntitySkeleton['Skeleton'/7427, l='MpServer', x=1238.50, y=64.00, z=1275.50], EntityHusk['Husk'/6153, l='MpServer', x=1279.50, y=64.00, z=1362.50], EntitySkeleton['Skeleton'/7306, l='MpServer', x=1344.50, y=64.00, z=1384.50], EntityCreeper['Creeper'/7115, l='MpServer', x=1247.50, y=64.00, z=1349.50], EntitySpider['Spider'/6157, l='MpServer', x=1282.37, y=64.00, z=1371.35], EntitySpider['Spider'/5841, l='MpServer', x=1342.50, y=64.00, z=1258.50], EntitySkeleton['Skeleton'/6164, l='MpServer', x=1190.50, y=64.00, z=1246.50], EntitySkeleton['Skeleton'/5396, l='MpServer', x=1278.50, y=64.00, z=1228.50], EntitySpider['Spider'/6549, l='MpServer', x=1242.50, y=64.00, z=1336.50], EntityCreeper['Creeper'/6296, l='MpServer', x=1202.50, y=64.00, z=1382.50], EntitySpider['Spider'/5786, l='MpServer', x=1195.97, y=64.00, z=1376.00], EntitySpider['Spider'/5213, l='MpServer', x=1257.00, y=64.00, z=1269.99], EntityZombie['Zombie'/8350, l='MpServer', x=1231.50, y=64.00, z=1361.50], EntitySpider['Spider'/6753, l='MpServer', x=1196.50, y=64.00, z=1274.50], EntityCreeper['Creeper'/5220, l='MpServer', x=1251.50, y=64.00, z=1268.50], EntitySpider['Spider'/7589, l='MpServer', x=1222.50, y=64.00, z=1331.50], EntitySpider['Spider'/5990, l='MpServer', x=1273.50, y=64.00, z=1373.50], EntitySkeleton['Skeleton'/6822, l='MpServer', x=1271.50, y=64.00, z=1368.50], EntityZombie['Zombie'/7655, l='MpServer', x=1201.50, y=64.00, z=1348.50], EntitySkeleton['Skeleton'/5096, l='MpServer', x=1258.50, y=64.00, z=1298.50], EntitySkeleton['Skeleton'/8233, l='MpServer', x=1210.50, y=64.00, z=1362.50], EntitySkeleton['Skeleton'/6826, l='MpServer', x=1276.50, y=64.00, z=1367.50], EntitySkeleton['Skeleton'/6892, l='MpServer', x=1220.50, y=64.00, z=1287.50], EntityPlayerSP['Player453'/68, l='MpServer', x=1268.61, y=64.00, z=1305.01], EntitySkeleton['Skeleton'/5422, l='MpServer', x=1191.50, y=64.00, z=1329.50], EntityHusk['Husk'/6384, l='MpServer', x=1227.50, y=64.00, z=1379.50], EntityZombie['Zombie'/7920, l='MpServer', x=1230.50, y=64.00, z=1347.50], EntityHusk['Husk'/8048, l='MpServer', x=1260.50, y=64.00, z=1239.50], EntitySpider['Spider'/5427, l='MpServer', x=1219.99, y=64.00, z=1317.02], EntitySpider['Spider'/6387, l='MpServer', x=1224.50, y=64.00, z=1381.50], EntitySkeleton['Skeleton'/7284, l='MpServer', x=1278.93, y=64.00, z=1339.35], EntityHusk['Husk'/7222, l='MpServer', x=1218.50, y=64.00, z=1274.50], EntitySkeleton['Skeleton'/6521, l='MpServer', x=1226.50, y=64.00, z=1344.50], EntitySpider['Spider'/7226, l='MpServer', x=1213.50, y=64.00, z=1272.50], EntitySpider['Spider'/7419, l='MpServer', x=1235.50, y=64.00, z=1273.50], EntitySpider['Spider'/7803, l='MpServer', x=1216.50, y=64.00, z=1355.50], EntityHusk['Husk'/8061, l='MpServer', x=1214.51, y=64.35, z=1315.40], EntitySpider['Spider'/7806, l='MpServer', x=1213.50, y=64.00, z=1352.50], EntityChicken['Chicken'/8062, l='MpServer', x=1214.50, y=64.00, z=1315.50]]
+	Retry entities: 0 total; []
+	Server brand: fml,forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:461)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2888)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:462)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
+	at GradleStart.main(GradleStart.java:25)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_192, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 528877488 bytes (504 MB) / 907542528 bytes (865 MB) up to 1883242496 bytes (1796 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP 9.42 Powered by Forge 14.23.5.2768 5 mods loaded, 5 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State     | ID         | Version      | Source                           | Signature |
+	|:--------- |:---------- |:------------ |:-------------------------------- |:--------- |
+	| UCHIJAAAA | minecraft  | 1.12.2       | minecraft.jar                    | None      |
+	| UCHIJAAAA | mcp        | 9.42         | minecraft.jar                    | None      |
+	| UCHIJAAAA | FML        | 8.0.99.99    | forgeSrc-1.12.2-14.23.5.2768.jar | None      |
+	| UCHIJAAAA | forge      | 14.23.5.2768 | forgeSrc-1.12.2-14.23.5.2768.jar | None      |
+	| UCHIJAAAA | examplemod | 1.0.0        | bin                              | None      |
+
+	Loaded coremods (and transformers): 
+	GL info: ' Vendor: 'Intel' Version: '4.5.0 - Build 24.20.100.6194' Renderer: 'Intel(R) HD Graphics 630'
+	Launched Version: 1.12.2
+	LWJGL: 2.9.4
+	OpenGL: Intel(R) HD Graphics 630 GL version 4.5.0 - Build 24.20.100.6194, Intel
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: 
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)
+	CPU: 8x Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz

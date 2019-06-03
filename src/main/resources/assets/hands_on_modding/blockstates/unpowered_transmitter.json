@@ -1,0 +1,25 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "hands_on_modding:wireless_model",
+        "transform": "forge:default-block",
+        "textures": {
+            "particle":             "hands_on_modding:blocks/wireless_base_front_unpowered",
+            "base_front":           "hands_on_modding:blocks/wireless_base_front_unpowered",
+            "base_back":            "hands_on_modding:blocks/wireless_base_back",
+            "base_side":            "hands_on_modding:blocks/wireless_base_side",
+            "rod_end":    			"hands_on_modding:blocks/wireless_rod_end_unpowered",
+            "rod_side":   			"hands_on_modding:blocks/transmitter_rod_side_unpowered"
+        }
+    },
+    "variants": {
+        "facing": {
+            "down":  {  },
+            "up":    {  },
+            "north": { "x": 270 },
+            "south": { "x": 270, "y": 180 },
+            "west":  { "x": 270, "y": 270 },
+            "east":  { "x": 270, "y": 90 }
+        }
+    }
+}

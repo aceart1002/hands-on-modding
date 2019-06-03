@@ -1,0 +1,13 @@
+{
+  "parent": "hands_on_modding:block/transmitter_model",
+  
+  "textures": {
+            "particle":             "hands_on_modding:blocks/wireless_base_front_powered",
+            "base_front":           "hands_on_modding:blocks/wireless_base_front_powered",
+            "base_back":            "hands_on_modding:blocks/wireless_base_back",
+            "base_side":            "hands_on_modding:blocks/wireless_base_side",
+            "rod_end":    			"hands_on_modding:blocks/wireless_rod_end_powered",
+            "rod_side":   			"hands_on_modding:blocks/transmitter_rod_side_powered"
+        }
+
+}
